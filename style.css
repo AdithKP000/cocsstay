@@ -1,0 +1,343 @@
+:root {
+    --primary: #ff7e33;
+    /* Vibrant Orange */
+    --primary-dark: #e66a1f;
+    --secondary: #ffffff;
+    --bg: #f8f9fa;
+    /* Off-white */
+    --card-bg: #ffffff;
+    --text-main: #333333;
+    --text-muted: #666666;
+    --accent-cold: #ffa64d;
+    --glass: rgba(0, 0, 0, 0.03);
+    --border: rgba(0, 0, 0, 0.1);
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Inter', sans-serif;
+}
+
+body {
+    background-color: var(--bg);
+    color: var(--text-main);
+    min-height: 100vh;
+    overflow-x: hidden;
+    position: relative;
+}
+
+/* Background Decoration */
+.background-blobs {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    z-index: -1;
+    filter: blur(80px);
+    opacity: 0.3;
+}
+
+.blob {
+    position: absolute;
+    width: 50vw;
+    height: 50vw;
+    border-radius: 50%;
+}
+
+.blob-1 {
+    background: var(--primary);
+    top: -10%;
+    left: -10%;
+    opacity: 0.1;
+}
+
+.blob-2 {
+    background: var(--primary-dark);
+    bottom: -10%;
+    right: -10%;
+    opacity: 0.1;
+}
+
+.container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 20px;
+}
+
+/* Header & Nav */
+header {
+    padding: 30px 0;
+    background: rgba(255, 255, 255, 0.8);
+    backdrop-filter: blur(10px);
+    position: sticky;
+    top: 0;
+    z-index: 100;
+    border-bottom: 1px solid var(--border);
+}
+
+nav {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    align-items: center;
+    gap: 20px;
+}
+
+.logo img {
+    height: 50px;
+    width: auto;
+    display: block;
+}
+
+.filter-nav {
+    display: flex;
+    gap: 10px;
+}
+
+.filter-nav label {
+    padding: 8px 20px;
+    border-radius: 20px;
+    background: var(--glass);
+    border: 1px solid var(--border);
+    cursor: pointer;
+    font-size: 0.9rem;
+    transition: all 0.3s ease;
+    user-select: none;
+}
+
+.filter-nav label:hover {
+    background: rgba(255, 255, 255, 0.1);
+}
+
+.close-menu {
+    display: none;
+}
+
+#menu-toggle,
+.menu-overlay {
+    display: none;
+}
+
+.hamburger {
+    display: none;
+    cursor: pointer;
+    flex-direction: column;
+    gap: 5px;
+    z-index: 1002;
+    padding: 10px;
+}
+
+.hamburger span {
+    display: block;
+    width: 25px;
+    height: 3px;
+    background: var(--primary);
+    border-radius: 2px;
+    transition: 0.3s;
+}
+
+/* Page Title */
+.page-title {
+    font-family: 'Outfit', sans-serif;
+    font-size: 3rem;
+    text-align: center;
+    margin: 60px 0 40px;
+    font-weight: 700;
+}
+
+/* Menu Grid */
+.menu-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+    gap: 30px;
+    padding-bottom: 100px;
+}
+
+.menu-item {
+    background: var(--card-bg);
+    border-radius: 24px;
+    overflow: hidden;
+    border: 1px solid var(--border);
+    transition: transform 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275), box-shadow 0.4s ease;
+    display: flex;
+    flex-direction: column;
+}
+
+.menu-item:hover {
+    transform: translateY(-10px);
+    box-shadow: 0 20px 40px rgba(0, 0, 0, 0.4);
+    border-color: var(--primary);
+}
+
+.item-img {
+    position: relative;
+    width: 100%;
+    height: 250px;
+    overflow: hidden;
+}
+
+.item-img img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    transition: transform 0.6s ease;
+}
+
+.menu-item:hover .item-img img {
+    transform: scale(1.1);
+}
+
+.price {
+    position: absolute;
+    top: 20px;
+    right: 20px;
+    background: rgba(0, 0, 0, 0.6);
+    backdrop-filter: blur(5px);
+    padding: 5px 15px;
+    border-radius: 12px;
+    font-weight: 600;
+    font-size: 1.1rem;
+    color: white;
+}
+
+.item-info {
+    padding: 25px;
+    flex-grow: 1;
+}
+
+.item-info h3 {
+    font-family: 'Outfit', sans-serif;
+    font-size: 1.3rem;
+    margin-bottom: 8px;
+    color: var(--text-main);
+}
+
+.item-info p {
+    color: var(--text-muted);
+    font-size: 0.9rem;
+    line-height: 1.5;
+}
+
+/* Filtering Logic */
+input[type="radio"] {
+    display: none;
+}
+
+/* Filter styles for the labels */
+#all:checked~header label[for="all"],
+#classic:checked~header label[for="classic"],
+#lattes:checked~header label[for="lattes"],
+#drinks:checked~header label[for="drinks"] {
+    background: var(--primary);
+    color: white;
+    border-color: var(--primary);
+    box-shadow: 0 4px 15px rgba(255, 126, 51, 0.3);
+}
+
+/* Item visibility based on filters */
+#classic:checked~main .menu-item:not(.classic),
+#lattes:checked~main .menu-item:not(.lattes),
+#drinks:checked~main .menu-item:not(.drinks) {
+    display: none;
+}
+
+/* Footer */
+footer {
+    text-align: center;
+    padding: 60px 0;
+    background: linear-gradient(to right, var(--primary), var(--primary-dark));
+    color: white;
+    font-size: 0.9rem;
+    font-weight: 500;
+}
+
+footer p {
+    opacity: 0.9;
+}
+
+/* Responsive Adjustments */
+@media (max-width: 768px) {
+    header {
+        padding: 15px 0;
+    }
+
+    .hamburger {
+        display: flex;
+    }
+
+    .logo img {
+        height: 35px;
+    }
+
+    /* Sidebar drawer from left */
+    .filter-nav {
+        position: fixed;
+        top: 0;
+        left: 0;
+        width: 280px;
+        height: 100vh;
+        background: var(--card-bg);
+        z-index: 1001;
+        flex-direction: column;
+        padding: 80px 30px 40px;
+        gap: 15px;
+        transform: translateX(-100%);
+        transition: transform 0.4s cubic-bezier(0.16, 1, 0.3, 1);
+        box-shadow: 10px 0 30px rgba(0, 0, 0, 0.1);
+    }
+
+    #menu-toggle:checked~header {
+        z-index: 1100;
+    }
+
+    #menu-toggle:checked~header .filter-nav {
+        transform: translateX(0);
+    }
+
+    /* Overlay logic */
+    .menu-overlay {
+        display: block;
+        position: fixed;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        background: rgba(0, 0, 0, 0.5);
+        z-index: 1000;
+        opacity: 0;
+        visibility: hidden;
+        transition: 0.3s;
+    }
+
+    #menu-toggle:checked~.menu-overlay {
+        opacity: 1;
+        visibility: visible;
+    }
+
+    .close-menu {
+        display: block;
+        font-size: 2.5rem;
+        color: var(--text-muted);
+        cursor: pointer;
+        align-self: flex-end;
+        margin-bottom: 20px;
+        line-height: 1;
+    }
+
+    .filter-nav label {
+        width: 100%;
+        padding: 12px 20px;
+        font-size: 1rem;
+        border-radius: 12px;
+        text-align: left;
+    }
+
+    nav {
+        flex-wrap: nowrap;
+        justify-content: space-between;
+        width: 100%;
+    }
+}

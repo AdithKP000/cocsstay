@@ -1,0 +1,219 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>COCOSTAY - Premium Beverage Menu</title>
+    <link rel="stylesheet" href="style.css">
+    <link
+        href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700&family=Outfit:wght@300;400;600;800&display=swap"
+        rel="stylesheet">
+</head>
+
+<body>
+    <div class="background-blobs">
+        <div class="blob blob-1"></div>
+        <div class="blob blob-2"></div>
+    </div>
+
+    <!-- Mobile Menu Toggle -->
+    <input type="checkbox" id="menu-toggle">
+    <div class="menu-overlay"></div>
+
+    <!-- Filter Radio Buttons -->
+    <input type="radio" id="all" name="filter" checked>
+    <input type="radio" id="classic" name="filter">
+    <input type="radio" id="lattes" name="filter">
+    <input type="radio" id="drinks" name="filter">
+
+    <header>
+        <div class="container">
+            <nav>
+                <div class="logo">
+                    <img src="images/logov2.png" alt="COCOSTAY Logo">
+                </div>
+
+                <label for="menu-toggle" class="hamburger">
+                    <span></span>
+                    <span></span>
+                    <span></span>
+                </label>
+                <div class="filter-nav">
+                    <label for="all">Entire Menu</label>
+                    <label for="classic">Classic Hot</label>
+                    <label for="lattes">Iced Lattes</label>
+                    <label for="drinks">Cold Drinks</label>
+                </div>
+            </nav>
+        </div>
+    </header>
+
+    <main class="container">
+        <h1 class="page-title">Refine Your Choice</h1>
+
+        <div class="menu-grid">
+            <!-- Classic Hot Beverages -->
+            <div class="menu-item classic">
+                <div class="item-img">
+                    <img src="images/belgium_hot_chocolate.png" alt="Belgium Hot Chocolate">
+                    <div class="price">₹199</div>
+                </div>
+                <div class="item-info">
+                    <h3>Belgium Hot Chocolate</h3>
+                    <p>Rich, velvety chocolate with premium cream.</p>
+                </div>
+            </div>
+
+            <div class="menu-item classic">
+                <div class="item-img">
+                    <img src="images/blood_moon_cooler.png" alt="Cafe Latte">
+                    <div class="price">₹139</div>
+                </div>
+                <div class="item-info">
+                    <h3>Cafe Latte</h3>
+                    <p>Double shot espresso with steamed milk.</p>
+                </div>
+            </div>
+
+            <div class="menu-item classic">
+                <div class="item-img">
+                    <img src="images/cappuchino.jpg" alt="Classic Cappuccino">
+                    <div class="price">₹149</div>
+                </div>
+                <div class="item-info">
+                    <h3>Classic Cappuccino</h3>
+                    <p>Perfectly balanced coffee and foam.</p>
+                </div>
+            </div>
+
+            <div class="menu-item classic">
+                <div class="item-img">
+                    <img src="images/americano.jpg" alt="Americano">
+                    <div class="price">₹99</div>
+                </div>
+                <div class="item-info">
+                    <h3>Americano</h3>
+                    <p>Smooth, bold espresso with hot water.</p>
+                </div>
+            </div>
+
+            <div class="menu-item classic">
+                <div class="item-img">
+                    <img src="images/flat-white.jpg" alt="Flat White">
+                    <div class="price">₹139</div>
+                </div>
+                <div class="item-info">
+                    <h3>Flat White</h3>
+                    <p>Silky textured milk over rich espresso.</p>
+                </div>
+            </div>
+
+            <div class="menu-item classic">
+                <div class="item-img">
+                    <img src="images/mochachino.jpg" alt="Mochachino">
+                    <div class="price">₹169</div>
+                </div>
+                <div class="item-info">
+                    <h3>Mochachino</h3>
+                    <p>Sweet cocoa meets dark roast coffee.</p>
+                </div>
+            </div>
+
+            <!-- Lattes (Cold) -->
+            <div class="menu-item lattes">
+                <div class="item-img">
+                    <img src="images/clasic-iced-latte.jpg" alt="Classic Iced Latte">
+                    <div class="price">₹169</div>
+                </div>
+                <div class="item-info">
+                    <h3>Classic Iced Latte</h3>
+                    <p>Chilled espresso with cold milk over ice.</p>
+                </div>
+            </div>
+
+            <div class="menu-item lattes">
+                <div class="item-img">
+                    <img src="images/nutty-latte.jpg" alt="Nutty Latte">
+                    <div class="price">₹179</div>
+                </div>
+                <div class="item-info">
+                    <h3>Nutty Latte</h3>
+                    <p>Latte infused with roasted hazelnut notes.</p>
+                </div>
+            </div>
+
+            <div class="menu-item lattes">
+                <div class="item-img">
+                    <img src="images/honey-almond.jpg" alt="Honey Almond Cloud Latte">
+                    <div class="price">₹209</div>
+                </div>
+                <div class="item-info">
+                    <h3>Honey Almond Cloud Latte</h3>
+                    <p>Sweet honey and almond milk with light foam.</p>
+                </div>
+            </div>
+
+            <div class="menu-item lattes">
+                <div class="item-img">
+                    <img src="images/ocean-kiss-mocha.jpg" alt="Ocean Kiss Mocha">
+                    <div class="price">₹219</div>
+                </div>
+                <div class="item-info">
+                    <h3>Ocean Kiss Mocha</h3>
+                    <p>Cool mint and chocolate espresso blend.</p>
+                </div>
+            </div>
+
+            <!-- Drinks (Cold) -->
+            <div class="menu-item drinks">
+                <div class="item-img">
+                    <img src="images/blood_moon_cooler.png" alt="Blood Moon Cooler">
+                    <div class="price">₹179</div>
+                </div>
+                <div class="item-info">
+                    <h3>Blood Moon Cooler</h3>
+                    <p>Refreshing hibiscus and blood orange infusion.</p>
+                </div>
+            </div>
+
+            <div class="menu-item drinks">
+                <div class="item-img">
+                    <img src="images/honey_orange_mashup.jpg" alt="Honey Orange Mashup">
+                    <div class="price">₹159</div>
+                </div>
+                <div class="item-info">
+                    <h3>Honey Orange Mashup</h3>
+                    <p>Zesty orange juice with a touch of honey.</p>
+                </div>
+            </div>
+
+            <div class="menu-item drinks">
+                <div class="item-img">
+                    <img src="images/Alphonso-Bath.jpg" alt="Alphonso Bath">
+                    <div class="price">₹159</div>
+                </div>
+                <div class="item-info">
+                    <h3>Alphonso Bath</h3>
+                    <p>Pure alphonso mango nectar with crushed ice.</p>
+                </div>
+            </div>
+        </div>
+    </main>
+
+    <footer>
+        <div class="container">
+            <p>&copy; 2025 COCOSTAY.Kochi, A Premium Co-Living Space.</p>
+        </div>
+    </footer>
+    <script>
+        // Close mobile menu when a navigation item is clicked
+        document.querySelectorAll('.filter-nav label').forEach(label => {
+            label.addEventListener('click', () => {
+                document.getElementById('menu-toggle').checked = false;
+            });
+        });
+    </script>
+</body>
+
+</html>
