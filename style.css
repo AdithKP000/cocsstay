@@ -230,7 +230,8 @@ input[type="radio"] {
 #all:checked~header label[for="all"],
 #classic:checked~header label[for="classic"],
 #lattes:checked~header label[for="lattes"],
-#drinks:checked~header label[for="drinks"] {
+#drinks:checked~header label[for="drinks"],
+#mojitos:checked~header label[for="mojitos"] {
     background: var(--primary);
     color: white;
     border-color: var(--primary);
@@ -240,7 +241,8 @@ input[type="radio"] {
 /* Item visibility based on filters */
 #classic:checked~main .menu-item:not(.classic),
 #lattes:checked~main .menu-item:not(.lattes),
-#drinks:checked~main .menu-item:not(.drinks) {
+#drinks:checked~main .menu-item:not(.drinks),
+#mojitos:checked~main .menu-item:not(.mojitos) {
     display: none;
 }
 
